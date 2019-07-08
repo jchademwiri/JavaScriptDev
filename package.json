@@ -4,7 +4,10 @@
   "description": "JavaScript development environment by Jacob Chademwiri",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessege.js",
-    "start": "babel-node buildScripts/srcServer.js"
+    "start": "npm-run-all --parallel open:src lint:watch",
+    "open:src": "babel-node buildScripts/srcServer.js",
+    "lint": "esw webpack.config.*srcbuildScripts --color",
+    "lint:watch": "npm run lint -- --watch"
   },
   "author": "Jacob Chademwiri",
   "license": "MIT",
